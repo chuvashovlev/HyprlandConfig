@@ -1,0 +1,102 @@
+* {
+    border: none;
+    border-radius: 12px;
+    font-family: Cartograph CF Nerd Font, monospace;
+    font-weight: bold;
+    font-size: 12px;
+    min-height: 0;
+}
+
+window#waybar {
+    background: rgba(87, 61, 38, 0); /*Делает вайбар прозрачным*/
+    color: #FFF9D5;
+}
+
+tooltip {
+    background: rgba(87, 61, 38, 0.5);
+    border-radius: 0px 0px 6px 6px
+}
+tooltip label {
+    /*color: #FFF9D5;*/
+}
+
+#workspaces button {
+    padding: 5px;
+    /*color: #FFF9D5;*/
+    margin-right: 5px;
+}
+
+#workspaces button.active {
+    color: #B58664;
+}
+
+#workspaces button:hover {
+    background: rgba(87, 61, 38, 0.5);
+    /*color: #FFF9D5;*/
+    border-radius: 8px;
+}
+
+#language, #custom-playerctl, #custom-netusage, #window, #clock, #battery, #pulseaudio, #network, #workspaces, #tray, #backlight, #cpu_temperature, #memory, #bluetooth, #custom-logout, #custom-gpu {
+    background: rgba(87, 61, 38, 0.5);
+    padding: 1px 12px;
+    margin: 3px 0px;
+    /*color: #FFF9D5;*/
+}
+
+#tray {
+    margin-left: 10px;
+}
+
+#workspaces {
+    margin-left: 10px; /*Отступ слева от экрана*/
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+/*#language {
+    color: #E84627;
+    border-left: 0px;
+    border-right: 0px;
+    border-radius: 0px 0px 0px 6px
+}*/
+
+#custom-playerctl {
+    border-radius: 0px 0px 6px 6px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#clock {
+    /*color: #FFF9D5;*/
+}
+
+#custom-netusage, #network {
+    color: #E0DBB7;
+}
+
+#backlight {
+    margin-left: 10px;
+}
+
+#pulseaudio {
+    color: #B8D3ED;
+}
+
+#pulseaudio.microphone {
+    color: #D19ECB;
+}
+
+#battery {
+    color: #95D8BA;
+    margin-right: 10px;
+    border-left: 0px;
+}
+
+#backlight {
+  color: #93CFD7
+}
+
+#custom-logout {
+  margin-right: 10px; /*Отступ справа от экрана*/
+}
+

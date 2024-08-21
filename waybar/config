@@ -1,0 +1,134 @@
+{
+	"reload_style_on_change": true,
+	"layer": "top",
+	"spacing": 8,
+	"height": 36,
+	"modules-left": ["hyprland/workspaces","hyprland/window","tray"],
+	"modules-center": ["clock"],
+	"modules-right": ["custom/gpu","group/cpu_temperature","memory","backlight","pulseaudio","battery","network","bluetooth","custom/logout"],
+
+	"hyprland/workspaces": {
+		  "format": "{icon}",
+		  "format-icons": {
+			"default": "󰊠",
+			"active": "󰮯",
+			"empty": ""
+		  },
+		  "persistent-workspaces": {
+			"*": 5
+		  },
+	},
+
+	"hyprland/window": {
+		"format": "  >> {}",
+		"max-length": 20
+	},
+
+	"clock": {
+		"format": "{:%H:%M   %d/%m/%Y 󰸗 }",
+		"tooltip-format": "<tt><small>{calendar}</small></tt>",
+        	"calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "format": {
+                              "months":     "<span color='#ffead3'><b>{}</b></span>",
+                              "days":       "<span color='#ecc6d9'><b>{}</b></span>",
+                              "weeks":      "<span color='#99ffdd'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ffcc66'><b>{}</b></span>",
+                              "today":      "<span color='#ff6699'><b><u>{}</u></b></span>"
+                              }
+                    },
+        	"actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+	},
+
+	"tray":{
+		"icon-size": 21,
+		"spacing": 10
+	},
+
+	"custom/gpu": {
+  		"exec": "nvidia-smi --query-gpu=utilization.gpu --format=csv,noheader,nounits",
+  		"format": "GPU: {}%",
+  		"return-type": "",
+		"interval": 1
+	},
+
+	"group/cpu_temperature": {
+		"orientation": "inherit",
+		"modules": [
+			"cpu",
+			"temperature"
+		]	
+	},
+	
+	"cpu": {
+		"interval": 1,
+		"format": " {usage}% "
+	},
+
+	"temperature": {
+		"interval": 1,
+		"thermal-zone": 3,
+		"critical-threshold": 80,
+		"format-critical": "{temperatureC}°C",
+		"format": "{temperatureC}°C"
+	},
+
+	"memory": {
+		"interval": 8,
+		"format": " {used:0.1f}/{total:0.1f}GiB"
+	},
+
+	"backlight": {
+		"device": "intel_backlight",
+		"format": "{icon} {percent}%",
+		"format-icons": [""]	
+	},	
+
+	"pulseaudio": {
+		"format": "{icon} {volume}%",
+		"format-muted": " 󰸈  ",
+		"format-icons": ["󰕿","󰖀","󰕾"],
+		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click": "pavucontrol"
+	},
+
+	"battery": {
+		"interval": 1,
+		"states": {
+			"warning": 30,
+			"critical": 15
+		},
+		"format": "{icon}  {capacity}% {power:0.1f}W",
+			"format-icons": ["", "", "", "", ""],
+	},
+
+	"network": {
+		"interval": 1,
+		"format": "󰖩",
+		"format-disconnected": "󰖪",
+		"on-click": "kitty nmtui",
+		"tooltip-format": "{ifname} via {gwaddr} 󰊗",
+    		"tooltip-format-wifi": "{essid} ({signalStrength}%)  {bandwidthTotalBytes}",
+    		"tooltip-format-disconnected": "Disconnected"
+	},
+
+	"bluetooth": {
+		"format": "󰂯",
+		"format-off": "󰂲",
+		"on-click": "kitty bluetuith"
+	},
+
+	"custom/logout": {
+		"format": "󰍃",
+		"on-click": "wlogout"
+	}
+}
